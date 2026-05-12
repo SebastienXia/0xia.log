@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styleBodyForAll.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="shortcut icon" href="./assets/favicons/bouclier_de_securite_noir.png" type="image/x-icon" media="(prefers-color-scheme: light)">   
+    <link rel="shortcut icon" href="./assets/favicons/bouclier_de_securite_blanc.png" type="image/x-icon" media="(prefers-color-scheme: dark)">
+    <meta name="description" content="0xia.log - Un blog personnel sur la cybersécurité, partageant des articles du savoir et des expériences dans ce domaine passionnant.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+    <title>0xia.log</title>
+</head>
+<body>
+    <header>
+        <a href="index.html"><h1>0xia<span>.log</span></h1></a>
+
+        <!-- Nav desktop -->
+        <nav id="nav-desktop">
+            <ul>
+                <li><a href="./about.html">À propos</a></li>
+            </ul>
+        </nav>
+
+        <!-- Bouton hamburger (mobile uniquement) -->
+        <button id="hamburger" aria-label="Menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Menu mobile -->
+    <nav id="nav-mobile" aria-hidden="true">
+        <ul>
+            <li><a href="./about.html">À propos</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenu principal -->
+     <section id="presentationSection">
+        <h2>&#128075; Bienvenue sur 0xia.log <span>by Sébastien XIA</span></h2>
+        <p>"Sur ce site simpliste fait maison vous trouverez des articles sur divers sujets de cybersécurité. Me permettant de partager mes connaissances et expériences dans ce domaine passionnant. Enjoy! :]"</p>
+     </section>
+
+     <section class="boxArticles">
+
+        <article onclick="location.href='./articles/vigenere.html'" style="cursor:pointer">
+            <h3>Chiffre de Vigenère - clé mot clair</h3>
+            <p>Le chiffre de Vigenère est un système de chiffrement par substitution polyalphabétique symétrique. Il a été inventé par le diplomate français Blaise de Vigenère au XVIème siècle...</p>
+            <p>2025-05-12 - Cryptographie | ~ 7 min</p>
+        </article>
+
+     </section>
+
+    <script>
+        const btn = document.getElementById('hamburger');
+        const menu = document.getElementById('nav-mobile');
+
+        btn.addEventListener('click', () => {
+            const isOpen = menu.classList.contains('open');
+
+            if (isOpen) {
+                menu.style.opacity = '0';
+                setTimeout(() => {
+                    menu.classList.remove('open');
+                    menu.style.display = 'none';
+                }, 250);
+            } else {
+                menu.classList.add('open');
+                menu.style.display = 'block';
+                requestAnimationFrame(() => {
+                    menu.style.opacity = '1';
+                });
+            }
+
+            btn.setAttribute('aria-expanded', !isOpen);
+            menu.setAttribute('aria-hidden', isOpen);
+        });
+    </script>
+</body>
+</html>

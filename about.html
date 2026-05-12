@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styleBodyForAll.css">
+    <link rel="stylesheet" href="./styles/about.css">
+    <link rel="shortcut icon" href="./assets/favicons/bouclier_de_securite_noir.png" type="image/x-icon" media="(prefers-color-scheme: light)">   
+    <link rel="shortcut icon" href="./assets/favicons/bouclier_de_securite_blanc.png" type="image/x-icon" media="(prefers-color-scheme: dark)">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+    <title>0xia.log</title>
+</head>
+<body>
+    <header>
+        <a href="./index.html"><h1>0xia<span>.log</span></h1></a>
+
+        <!-- Nav desktop -->
+        <nav id="nav-desktop">
+            <ul>
+                <li><a href="./about.html">À propos</a></li>
+            </ul>
+        </nav>
+
+        <!-- Bouton hamburger (mobile uniquement) -->
+        <button id="hamburger" aria-label="Menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Menu mobile -->
+    <nav id="nav-mobile" aria-hidden="true">
+        <ul>
+            <!-- <li><a href="#">Articles</a></li> -->
+            <li><a href="./about.html">À propos</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenu principal -->
+    <section class="box">
+        <h2>À propos</h2>
+        <p>Hey! Je suis Sébastien, un passionné de cybersécurité. Étudiant en informatique à <a href="https://u-paris.fr/" target="_blank" rel="noopener noreferrer" id="upc">l'Université de Paris</a>, afin de devenir Ingénieur en Sécurité Cloud & Infrastructres, l'avenir nous le dira.</p>
+        <p>Vous pouvez me retrouver sur Root-Me : <a href="https://www.root-me.org/XIA-1093551?lang=fr#bc3f726306b762cc4c66cd058dcfa482" target="_blank" rel="noopener noreferrer">Profil Root-Me</a></p>
+        <p>ou bien sur GitHub : <a href="https://github.com/SebastienXia" target="_blank" rel="noopener noreferrer">Profil GitHub</a></p>
+        <p>+ Site en constante évolution!!</p>
+    </section>
+
+    <script>
+        const btn = document.getElementById('hamburger');
+        const menu = document.getElementById('nav-mobile');
+
+        btn.addEventListener('click', () => {
+            const isOpen = menu.classList.contains('open');
+
+            if (isOpen) {
+                menu.style.opacity = '0';
+                setTimeout(() => {
+                    menu.classList.remove('open');
+                    menu.style.display = 'none';
+                }, 250);
+            } else {
+                menu.classList.add('open');
+                menu.style.display = 'block';
+                requestAnimationFrame(() => {
+                    menu.style.opacity = '1';
+                });
+            }
+
+            btn.setAttribute('aria-expanded', !isOpen);
+            menu.setAttribute('aria-hidden', isOpen);
+        });
+    </script>
+</body>
+</html>

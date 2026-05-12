@@ -1,0 +1,90 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Roboto Mono", monospace;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
+h1 span{
+    color: rgb(126, 124, 124);
+}
+
+a {
+    text-decoration: none;
+    color: rgb(49, 49, 49);
+    opacity: 0.8;
+}
+a:hover {
+    opacity: 1;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+    border-bottom: 1px solid rgb(49, 49, 49);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px; /*gap meilleur quand on utilise flex*/
+}
+
+/* Hamburger button */
+#hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+
+#hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: rgb(49, 49, 49);
+    transition: opacity 0.2s;
+}
+
+/* Nav mobile */
+#nav-mobile {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    width: 50%;
+    text-align: right;
+}
+
+#nav-mobile.open {
+    display: block;
+    opacity: 1;
+}
+
+#nav-mobile ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 1rem 0;
+}
+
+/* Mobile : seuil à adapter selon ton design */
+@media (max-width: 700px) {
+    #nav-desktop {
+        display: none;
+    }
+
+    #hamburger {
+        display: flex;
+    }
+}

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/styleBodyForAll.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="../styles/vigenere.css">
+    <link rel="shortcut icon" href="../assets/favicons/bouclier_de_securite_noir.png" type="image/x-icon" media="(prefers-color-scheme: light)">   
+    <link rel="shortcut icon" href="../assets/favicons/bouclier_de_securite_blanc.png" type="image/x-icon" media="(prefers-color-scheme: dark)">
+    <meta name="description" content="Découvrez le chiffre de Vigenère, un système de chiffrement par substitution polyalphabétique inventé au XVIème siècle. Apprenez son fonctionnement, son histoire et comment il a été cassé au XIXème siècle. Un article incontournable pour les passionnés de cryptographie!">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <!-- Pour la couleur du code -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <title>0xia.log - Chiffre de Vigenère - clé mot clair</title>
+</head>
+<body id="top">
+    <header>
+        <a href="../index.html"><h1>0xia<span>.log</span></h1></a>
+
+        <!-- Nav desktop -->
+        <nav id="nav-desktop">
+            <ul>
+                <li><a href="../about.html">À propos</a></li>
+            </ul>
+        </nav>
+
+        <!-- Bouton hamburger (mobile uniquement) -->
+        <button id="hamburger" aria-label="Menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Menu mobile -->
+    <nav id="nav-mobile" aria-hidden="true">
+        <ul>
+            <!-- <li><a href="#">Articles</a></li> -->
+            <li><a href="#">À propos</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenu principal -->
+    
+    <main>
+        <div>
+            <h2>Chiffre de Vigenère - clé mot clair</h2>
+            <p align="center">~ 7 min</p>
+            <p>Le chiffre de Vigenère est un système de <span class="underlineText"><a href="#note1">chiffrement par substitution polyalphabétique</a></span><sup>1</sup> symétrique. Il a été inventé par le diplomate français <span class="underlineText"><a href="#note2">Blaise de Vigenère</a></span><sup>2</sup> au XVIème siècle.</p>
+            <p>Ce chiffrement est utilisé pour protéger les communications sensibles en rendant l'analyse de fréquence plus difficile, aussi nommer "Le chiffre indéchiffrable". Il a finalement été "cassé" mathématiquement par <strong>Charles Babbage</strong> et <strong>Friedrich Kasiski</strong> au XIXe siècle, démontrant ainsi que même les systèmes de chiffrement les plus complexes peuvent être vulnérables à des attaques bien conçues. Depuis le chiffre de Vigenère n'offre plus aucune sécurité.</p>
+            <figure>
+                <img width="300" src="../assets/images/blaise_de_vigenere.png" alt="Blaise de Vigenère">
+                <figcaption>Blaise de Vigenère (1523-1596)</figcaption>
+            </figure>
+            <h2>Comment fonctionne-t-il ?</h2>
+            <p>Le chiffre de Vigenère utilise une clé de chiffrement constituée d'un mot ou d'une phrase. Chaque lettre du message clair est chiffrée en utilisant la lettre correspondante de la clé, selon un tableau de substitution polyalphabétique. Cela rend l'analyse de fréquence plus difficile, car chaque lettre peut être remplacée par plusieurs lettres différentes selon la position dans le texte et la clé utilisée.</p>
+            <figure>
+                <img src="../assets/images/table_de_vigenere.png" alt="Chiffre de Vigenère">
+                <figcaption>Table de chiffre de Vigenère</figcaption>
+            </figure>
+            <h4> > Exemple de chiffre de Vigenère :</h4>
+            <p>Pour chiffrer le message "HELLO" avec la clé "WORLD", on utilise la table de Vigenère : </p>
+            <ol>
+                <li>Prendre la le mot clair "<b>HELLO</b>"</li>
+                <li>Prendre la clé "<b>WORLD</b>"</li>
+                <li>Utiliser la table de Vigenère pour chiffrer chaque lettre. En reliant avec l'<b>intersection</b> de la lettre du message clair à la lettre correspondante de la clé. Prenons la lettre "H" du message clair et la lettre "W" de la clé cela nous donne "D" car si nous descendons de H jusqu'à W dans la table, nous trouvons "D".</li>
+                <ul>
+                    <li>Si la clé est plus courte que le message, elle est répétée pour couvrir toute la longueur du message. (e.g., "WORLD" devient "WORLDW")</li>
+                    <li>Si la clé est plus longue que le message, elle est tronquée pour correspondre à la longueur du message. (e.g., "WORLD" devient "WORL")</li>
+                </ul>
+                <li>Inversement, pour déchiffrer le message chiffré "<b>DSCWR</b>" avec la clé "WORLD", on utilise la table de Vigenère en reliant l'<b>intersection</b> de la lettre du message chiffré à la lettre correspondante de la clé.</li>
+            </ol>
+            <p>Cela nous donne le message chiffré "DSCWR". Nous remarquons la substitution polyalphabétique de chaque lettre du message clair par une lettre différente selon la clé utilisée.</p>
+            <h2>Voici le coeur du chiffre de Vigenère, la formule mathématique :</h2>
+            <figure>
+                <img src="../assets/images/formule_vigenere.png" alt="Formule du chiffre de Vigenère">
+                <figcaption>Formule du chiffre de Vigenère "(mod 26) désigne modulo 26 soit le reste de la division par 26"</figcaption>
+            </figure>
+            <p>On remplace chaque lettre par sa position dans l'alphabet (A=0, B=1, ..., Z=25)</p>
+            <p>À vous de modifier la formule selon vos besoins. Chiffré / Déchiffré, petit piège si vous voulez isoler <i>Message</i> pensez au nombre négatif qui ne désigne pas une lettre valide.</p>
+            <p>Donc même sans tableau nous pouvons chiffrer et déchiffrer des messages avec le chiffre de Vigenère.</p>
+        
+            <h2>Application du chiffre de Vigenère (Java)</h2>
+            <div class="code">
+                <pre><code>
+    
+    public class Vigenere {
+    
+        public static String executer(String texte, String cle, boolean chiffrer) {
+            if (cle == null || cle.isEmpty()) return texte;
+    
+            StringBuilder resultat = new StringBuilder();
+            int decalageCle = 0; // Pour ignorer les espaces dans la progression de la clé
+            int sens = chiffrer ? 1 : -1;
+    
+            for (int i = 0; i < texte.length(); i++) {
+                char c = texte.charAt(i);
+    
+                if (Character.isLetter(c)) {
+                    // On définit la base (A ou a) pour gérer la casse
+                    char base = Character.isUpperCase(c) ? 'A' : 'a';
+                    
+                    // Récupération du caractère correspondant dans la clé
+                    char charCle = cle.charAt(decalageCle % cle.length());
+                    int valeurCle = Character.toUpperCase(charCle) - 'A';
+    
+                    // Application de la formule mathématique unique
+                    // (c - base) extrait l'index 0-25
+                    int index = (c - base + (sens * valeurCle) + 26) % 26;
+                    
+                    resultat.append((char) (base + index));
+                    decalageCle++;
+                } else {
+                    // Si c'est un espace ou ponctuation, on l'ajoute tel quel
+                    resultat.append(c);
+                }
+            }
+            return resultat.toString();
+        }
+    
+        public static void main(String[] args) {
+            String msg = "HeLlO WoRlD!";
+            String cle = "world";
+    
+            String code = executer(msg, cle, true);
+            System.out.println("Chiffré : " + code);
+    
+            String decode = executer(code, cle, false);
+            System.out.println("Déchiffré : " + decode);
+        }
+    }
+                </code></pre>
+
+            </div>
+            <div class="terminal">
+                Chiffré : DsCwR ScIwG! <br>
+                Déchiffré : HeLlO WoRlD!
+            </div>
+            <p>Note : La première fois que j'ai voulu concevoir un programme du chiffre de Vigenère --  la longueur de mon code JAVA était <b>~180 lignes</b>.</p>
+            
+            <h2>Vulnérabilités</h2>
+            <p>Le chiffre de Vigenère, bien qu'étant plus sécurisé que les méthodes monoalphabétiques, présente plusieurs vulnérabilités :</p>
+            <ul>
+                <li><strong>Attaque par l'analyse de la longueur de la clé</strong> : Si la clé est courte et répétée, on peut utiliser des techniques comme l'analyse de l'indice de coïncidence pour déterminer sa longueur.</li>
+                <li><strong>Attaque par force brute</strong> : Pour les clés courtes, il est possible d'essayer toutes les combinaisons possibles.</li>
+                <li><strong>Attaque par analyse de fréquence</strong> : Une fois la longueur de la clé connue, on peut appliquer l'analyse de fréquence à chaque sous-texte.</li>
+            </ul>
+
+            <h2>Conclusion</h2>
+            <p>Le chiffre de Vigenère a joué un rôle important dans l'histoire de la cryptographie, représentant une avancée significative par rapport aux méthodes de chiffrement monoalphabétiques. Bien qu'il ait été considéré comme inviolable pendant plusieurs siècles, son inefficacité face aux attaques modernes le rend aujourd'hui principalement intéressant pour les historiens et les passionnés de cryptographie.</p>
+        </div>
+    </main>
+    <footer>
+        <p id="note1"><sup>1</sup> Un chiffre de substitution polyalphabétique est un type de chiffre dans lequel chaque lettre du message clair est remplacée par une lettre différente, en fonction de sa position dans le texte et d'une clé. Contrairement aux chiffres de substitution monoalphabétiques, où chaque lettre du message clair est remplacée par la même lettre du message chiffré, les chiffres polyalphabétiques utilisent plusieurs alphabets de substitution pour rendre le chiffrement plus complexe et résistant aux attaques par analyse de fréquence.</p>
+        <p id="note2"><sup>2</sup> Blaise de Vigenère (1523-1596) était un diplomate français, cryptographe et mathématicien. Il est surtout connu pour avoir inventé le chiffre de Vigenère, un système de chiffrement par substitution polyalphabétique qui a été largement utilisé pendant plusieurs siècles. Bien que le chiffre de Vigenère ait été considéré comme inviolable pendant longtemps, il a finalement été cassé au XIXème siècle grâce à l'analyse de fréquence et à d'autres techniques cryptographiques. Malgré cela, Blaise de Vigenère reste une figure importante dans l'histoire de la cryptographie.
+        <p>Outil utile : <a href="https://www.dcode.fr/chiffre-vigenere" target="_blank" rel="noopener noreferrer">https://www.dcode.fr/chiffre-vigenere</a></p>
+        <p>©2026 Sébastien XIA - <a href="../index.html">0xia.log</a> - <a href="../about.html">à propos</a> - <a href="#top">remonte en haut</a></p>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('hamburger');
+        const menu = document.getElementById('nav-mobile');
+
+        btn.addEventListener('click', () => {
+            const isOpen = menu.classList.contains('open');
+
+            if (isOpen) {
+                menu.style.opacity = '0';
+                setTimeout(() => {
+                    menu.classList.remove('open');
+                    menu.style.display = 'none';
+                }, 250);
+            } else {
+                menu.classList.add('open');
+                menu.style.display = 'block';
+                requestAnimationFrame(() => {
+                    menu.style.opacity = '1';
+                });
+            }
+
+            btn.setAttribute('aria-expanded', !isOpen);
+            menu.setAttribute('aria-hidden', isOpen);
+        });
+    </script>
+</body>
+</html>

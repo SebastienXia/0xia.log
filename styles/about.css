@@ -1,0 +1,11 @@
+.box {
+    width: 50%;
+}
+p{
+    font-family: Courier, monospace;
+    opacity: 0.8;
+}
+
+#upc {
+    color: red;
+}

@@ -1,0 +1,71 @@
+main {
+    width: 60%;
+    margin-top: 50px;
+    padding: 10px;
+}
+main img {
+    /*Explication : Image centrale dans le contenu principal */
+    display: block;     /* Centrer l'image horizontalement */
+    max-width: 100%;    /*L'image ne dépassera pas la largeur de son conteneur */
+    margin: 20px auto;  /*Ajouter une marge verticale de 20px et centrer l'image horizontalement */
+    height: auto;       /*Maintenir les proportions de l'image */
+}
+h2{
+    margin-top: 50px;
+    font-size: 1.7em;
+    text-align: center;
+}
+.underlineText {
+    text-decoration: underline;
+}
+ol li{
+    margin-bottom: 10px;
+}
+
+figcaption {
+    text-align: center;
+    font-size: 0.8em;
+    color: #555;
+    margin-top: 5px;
+}
+
+footer {
+    border-top: 1px solid rgb(49, 49, 49);
+    width: 60%;
+    margin: 50px auto;
+    padding: 10px;
+    font-size: 0.9em;
+}
+
+.code code{
+    border-left: 3px solid #ff0000;
+    border-radius: 6px;
+}
+
+.terminal {
+    background: #1a1a1a;
+    color: #00ff00;
+    font-family: "Roboto Mono", monospace;
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    border-left: 3px solid #00ff00;
+    font-size: 13px;
+}
+
+.terminal::before {
+    content: "$ output";
+    display: block;
+    color: #555;
+    margin-bottom: 0.5rem;
+    font-size: 11px;
+}
+
+/* Mobile : seuil à adapter selon ton design */
+@media (max-width: 700px) {
+    h2 {
+        font-size: 1.3em;
+    }
+    figcaption {
+        font-size: 0.9em;
+    }
+}
