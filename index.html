@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="shortcut icon" href="./assets/favicons/bouclier_de_securite_noir.png" type="image/x-icon" media="(prefers-color-scheme: light)">   
     <link rel="shortcut icon" href="./assets/favicons/bouclier_de_securite_blanc.png" type="image/x-icon" media="(prefers-color-scheme: dark)">
-    <meta name="description" content="0xia.log - Un blog personnel sur la cybersécurité, partageant des articles du savoir et des expériences dans ce domaine passionnant.">
+    <meta name="description" content="0xia.log - A personal cybersecurity blog, sharing insights, knowledge, and experiences in this exciting field.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,14 +19,12 @@
     <header>
         <a href="index.html"><h1>0xia<span>.log</span></h1></a>
 
-        <!-- Nav desktop -->
         <nav id="nav-desktop">
             <ul>
-                <li><a href="./about.html">À propos</a></li>
+                <li><a href="./about.html">About</a></li>
             </ul>
         </nav>
 
-        <!-- Bouton hamburger (mobile uniquement) -->
         <button id="hamburger" aria-label="Menu" aria-expanded="false">
             <span></span>
             <span></span>
@@ -34,25 +32,29 @@
         </button>
     </header>
 
-    <!-- Menu mobile -->
     <nav id="nav-mobile" aria-hidden="true">
         <ul>
-            <li><a href="./about.html">À propos</a></li>
+            <li><a href="./about.html">About</a></li>
         </ul>
     </nav>
 
-    <!-- Contenu principal -->
-     <section id="presentationSection">
-        <h2>&#128075; Bienvenue sur 0xia.log <span>by Sébastien XIA</span></h2>
-        <p>"Sur ce site simpliste fait maison vous trouverez des articles sur divers sujets de cybersécurité. Me permettant de partager mes connaissances et expériences dans ce domaine passionnant. Enjoy! :]"</p>
+    <section id="presentationSection">
+        <h2>&#128075; Welcome to 0xia.log <span>by Sébastien XIA</span></h2>
+        <p>"On this simple, homemade site, you will find articles on various cybersecurity topics. It allows me to share my knowledge and experiences in this fascinating field. Enjoy! :]"</p>
      </section>
 
      <section class="boxArticles">
 
         <article onclick="location.href='./articles/vigenere.html'" style="cursor:pointer">
-            <h3>Chiffre de Vigenère - clé mot clair</h3>
-            <p>Le chiffre de Vigenère est un système de chiffrement par substitution polyalphabétique symétrique. Il a été inventé par le diplomate français Blaise de Vigenère au XVIème siècle...</p>
-            <p>2025-05-12 - Cryptographie | ~ 7 min</p>
+            <h3>Vigenère Cipher - Plaintext Key</h3>
+            <p>The Vigenère cipher is a method of encrypting alphabetic text by using a series of interwoven Caesar ciphers, based on the letters of a keyword. It was invented by the French diplomat Blaise de Vigenère in the 16th century...</p>
+            <p>2025-05-12 - Cryptography | ~ 8 min read</p>
+        </article>
+
+        <article onclick="location.href='#'" style="cursor:pointer">
+            <h3>DoS / DDoS - Single or Multiple Sources</h3>
+            <p>DoS (Denial of Service) and DDoS (Distributed Denial of Service) attacks are techniques used to make a service unavailable. They can be launched from a single source or multiple sources simultaneously...</p>
+            <p>In Progress... - Network Security | ~ X min read</p>
         </article>
 
      </section>
