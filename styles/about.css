@@ -5,6 +5,10 @@ p{
     font-family: Courier, monospace;
     opacity: 0.8;
 }
+p a {
+    color: rgb(35, 177, 37);
+    text-decoration: none;
+}
 
 #upc {
     color: red;

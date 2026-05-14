@@ -24,6 +24,12 @@ p{
 
 .boxArticles article{
     padding: 10px;
+    margin-top: 25px;
+    transition-duration: 0.5s;
+    border-radius: 5px;
+}
+.boxArticles article:hover{
+    background-color: rgb(240, 240, 240);
 }
 
 h3 {
@@ -32,3 +38,5 @@ h3 {
     color: rgb(30, 30, 245);
     margin: 0;
 }
+
+
