@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/styleBodyForAll.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/styleForAll.css">
+    <link rel="shortcut icon" href="../assets/favicons/bouclier_de_securite_noir.png" type="image/x-icon" media="(prefers-color-scheme: light)">
+    <link rel="shortcut icon" href="../assets/favicons/bouclier_de_securite_blanc.png" type="image/x-icon" media="(prefers-color-scheme: dark)">
+    <meta name="description" content="0xia.log - A personal cybersecurity blog, sharing insights, knowledge, and experiences in this exciting field.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+
+
+    <title>0xia.log - Obfuscation command line (base64)</title>
+</head>
+<body>
+    <header>
+        <a href="../index.html"><h1>0xia<span>.log</span></h1></a>
+
+        <nav id="nav-desktop">
+            <ul>
+                <li><a href="../about.html">About</a></li>
+            </ul>
+        </nav>
+
+        <button id="hamburger" aria-label="Menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <nav id="nav-mobile" aria-hidden="true">
+        <ul>
+            <li><a href="../about.html">About</a></li>
+        </ul>
+    </nav>
+
+
+    <main>
+        <div>
+            <h1>Obfuscation command line (base64)</h1>
+            <p align="center">~ 3 min read</p>
+            <br>
+            <p>Obfuscation is a technique used to make code or data more difficult to understand or analyze. In the context of command line operations, obfuscation can be applied to various commands and scripts to hide their true purpose. One common method of obfuscation is using base64 encoding, which converts binary data into an ASCII string format.</p>
+            <p>In summary, obfuscation using base64 encoding can be a useful technique for hiding command line instructions, but it should be used with caution and in conjunction with other security measures to ensure the protection of sensitive information.</p>
+            <p>Base64 encoding is often used to obfuscate command line instructions, making them less readable to humans while still being executable by the system. This can be particularly useful for hiding sensitive information, such as passwords or API keys, within scripts or commands. However, it's important to note that base64 encoding is not a secure method of encryption, as it can be easily decoded back to its original form. Therefore, while base64 obfuscation can deter casual observers, it should not be relied upon for protecting sensitive data.</p>
+            
+            <h2>Example of obfuscation using base64 encoding</h2>
+            <p>In this example, we will obfuscate a simple PowerShell command that prints "Bonjour depuis Linux!" to the console. The command will be encoded in base64 format, making it less readable to humans while still being executable by the system.</p>
+            <div class="code">
+                <pre><code>
+    echo -n 'Write-Host "Bonjour depuis Linux!"' | iconv -t UTF-16LE | base64 -w 0
+                </code></pre>
+                <div class="terminal">
+                    VwByAGkAdABlAC0ASABvAHMAdAAgACIAQgBvAG4AagBvAHUAcgAgAGQAZQBwAHUAaQBzACAATABpAG4AdQB4ACEAIgA=
+                </div>
+                <p>To execute the obfuscated command, you can use the following Bash (Linux) command:</p>
+                <pre><code>
+    echo "ZWNobyAiQm9uam91ciBkZXB1aXMgTGludXggISIK" | base64 -d | bash // Linux
+    pwsh -EncodedCommand VwByAGkAdABlAC0ASABvAHMAdAAgACIAQgBvAG4AagBvAHUAcgAgAGQAZQBwAHUAaQBzACAATABpAG4AdQB4ACEAIgA= // Windows
+                </code></pre>
+                <div class="terminal">
+                    Bonjour depuis Linux! <br>
+                    Bonjour depuis Linux!
+                </div>
+            </div>
+            <p>And voila ! This is how you can obfuscate command line instructions using base64 encoding.</p>
+        </div>
+    </main>
+    <footer>
+        <p>©2026 Sébastien XIA - <a href="../index.html">0xia.log</a> - <a href="../about.html">about</a> - <a href="#top">back to top</a></p>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('hamburger');
+        const menu = document.getElementById('nav-mobile');
+
+        btn.addEventListener('click', () => {
+            const isOpen = menu.classList.contains('open');
+
+            if (isOpen) {
+                menu.style.opacity = '0';
+                setTimeout(() => {
+                    menu.classList.remove('open');
+                    menu.style.display = 'none';
+                }, 250);
+            } else {
+                menu.classList.add('open');
+                menu.style.display = 'block';
+                requestAnimationFrame(() => {
+                    menu.style.opacity = '1';
+                });
+            }
+
+            btn.setAttribute('aria-expanded', !isOpen);
+            menu.setAttribute('aria-hidden', isOpen);
+        });
+    </script>
+</body>
+</html>
